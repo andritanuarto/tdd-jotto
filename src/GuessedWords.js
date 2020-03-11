@@ -15,7 +15,7 @@ const GuessedWords = (props) => {
       return (
         <tr data-test="guessed-word" key={index}>
           <td>{word.guessedWord}</td>
-          <td>{word.letterMarchCount}</td>
+          <td>{word.letterMatchCount}</td>
         </tr>
       );
     });
@@ -23,8 +23,8 @@ const GuessedWords = (props) => {
     contents = (
       <div data-test="guessed-words">
         <h3>Guessed Words</h3>
-        <table>
-          <thead>
+        <table className="table table-sm">
+          <thead className="thead-light">
             <tr>
               <th>Guess</th>
               <th>Matching Letters</th>
@@ -48,7 +48,7 @@ GuessedWords.propTypes = {
   guessedWords: PropTypes.arrayOf(
     PropTypes.shape({
       guessedWord: PropTypes.string.isRequired,
-      letterMarchCount: PropTypes.number.isRequired
+      letterMatchCount: PropTypes.number.isRequired
     })
   ).isRequired
 };
