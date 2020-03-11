@@ -15,16 +15,26 @@ setup();
 
 describe('render', () => {
   describe('word has not been guessed', () => {
-    test('renders components without error', () => {
+    let wrapper;
 
+    beforeEach(() => {
+      const initialState = { success: false };
+      wrapper = setup(initialState);
+    });
+
+    test('renders components without error', () => {
+      const component = findByTestAttr(wrapper, "component-input");
+      expect(component.length).toBe(1);
     });
 
     test('renders input box', () => {
-
+      const inputBox = findByTestAttr(wrapper, "input-box");
+      expect(inputBox.length).toBe(1);
     });
 
     test('renders submit button', () => {
-
+      const submitBUtton = findByTestAttr(wrapper, "submit-button");
+      expect(submitBUtton.length).toBe(1);
     });
   });
 
